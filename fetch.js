@@ -291,6 +291,10 @@
           reject(new TypeError('Network request failed'))
           return
         }
+        if (status >= 400) {
+          reject(new TypeError(xhr.statusText))
+          return
+        }
         var options = {
           status: status,
           statusText: xhr.statusText,
